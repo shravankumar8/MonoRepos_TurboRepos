@@ -13,19 +13,18 @@ function Gradient({
   conic?: boolean;
   className?: string;
 }): JSX.Element {
-   return (
-     <>
-       <div
-         style={{ width: "100vh", justifyContent: "center", display: "flext" }}
-       >
-         <div style={{ width: "400px", border: "1px solid black" }}>
-           <input type="text" name="" placeholder="email" id="" />
-           <input type="text" name="" placeholder="password" id="" />
-           <button>submit</button>
-         </div>
-       </div>
-     </>
-   );
+  return (
+    <span
+      className={[
+        styles.gradient,
+        conic ? styles.glowConic : undefined,
+        small ? styles.gradientSmall : styles.gradientLarge,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    />
+  );
 }
 
 const LINKS = [
@@ -58,7 +57,7 @@ export default function Page(): JSX.Element {
       <div className={styles.description}>
         <p>
           examples/basic&nbsp;
-          <Code className={styles.code}>docs</Code>
+          <Code className={styles.code}>web</Code>
         </p>
         <div>
           <a
@@ -79,7 +78,7 @@ export default function Page(): JSX.Element {
         </div>
       </div>
 
-      <Button appName="docs" className={styles.button}>
+      <Button appName="web" className={styles.button}>
         Click me!
       </Button>
 
@@ -88,7 +87,7 @@ export default function Page(): JSX.Element {
           <div className={styles.logos}>
             <div className={styles.circles}>
               <Image
-                alt="Turborepo"
+                alt=""
                 height={614}
                 src="circles.svg"
                 width={614}
@@ -101,7 +100,7 @@ export default function Page(): JSX.Element {
 
             <div className={styles.logo}>
               <Image
-                alt=""
+                alt="Turborepo"
                 height={120}
                 priority
                 src="turborepo.svg"

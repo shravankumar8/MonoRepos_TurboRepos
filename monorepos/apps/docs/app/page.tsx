@@ -13,19 +13,18 @@ function Gradient({
   conic?: boolean;
   className?: string;
 }): JSX.Element {
-   return (
-     <>
-       <div
-         style={{ width: "100vh", justifyContent: "center", display: "flext" }}
-       >
-         <div style={{ width: "400px", border: "1px solid black" }}>
-           <input type="text" name="" placeholder="email" id="" />
-           <input type="text" name="" placeholder="password" id="" />
-           <button>submit</button>
-         </div>
-       </div>
-     </>
-   );
+  return (
+    <span
+      className={[
+        styles.gradient,
+        conic ? styles.glowConic : undefined,
+        small ? styles.gradientSmall : styles.gradientLarge,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    />
+  );
 }
 
 const LINKS = [
